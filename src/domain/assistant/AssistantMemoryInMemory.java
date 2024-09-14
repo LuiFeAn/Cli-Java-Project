@@ -23,8 +23,4 @@ public class AssistantMemoryInMemory implements  IAssistantMemory {
         return null;
     }
 
-    @Override
-    public void unregister(Client client) {
-        this._clients.remove(client);
-    }
 }
