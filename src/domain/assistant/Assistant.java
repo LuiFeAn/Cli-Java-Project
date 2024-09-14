@@ -49,7 +49,7 @@ public class Assistant {
 
            }
        }catch(Exception e){
-           System.out.println(e.getMessage());
+           System.out.println("Não foi possível registra-lo! Os parâmetros fornecidos são inválidos");
        }
 
     }
