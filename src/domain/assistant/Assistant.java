@@ -42,7 +42,7 @@ public class Assistant {
 
                String lastConfirmMessage = String.format("Certo. %s de email %s e idade %d", cliEmail,cliName,cliAge);
 
-               Client newClient = ClientFactory.newClientWithUsernameAndEmail(cliName,cliEmail,26);
+               Client newClient = ClientFactory.withUserNameAndEmail(cliName,cliEmail,26);
 
                this.assistantMemory.register(newClient);
 
