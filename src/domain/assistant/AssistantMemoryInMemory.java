@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class AssistantMemoryInMemory implements  IAssistantMemory {
 
-    private ArrayList<Client> _clients = new ArrayList<>();
+    final private ArrayList<Client> _clients = new ArrayList<>();
 
     @Override
     public void register(Client client) {
