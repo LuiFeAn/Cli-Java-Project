@@ -14,13 +14,13 @@ public class AssistantMemoryInMemory implements  IAssistantMemory {
     }
 
     @Override
+    public void unregister(Client client) {
+        this._clients.remove(client);
+    }
+
+    @Override
     public Client find(String email) {
-        for(Client client : this._clients){
-            if(client.getEmail().equals(email)){
-                return client;
-            }
-        }
-        return null;
+       return this._clients.stream().filter( client -> client.getEmail().equals(email)).findFirst().orElse(null);
     }
 
 }
