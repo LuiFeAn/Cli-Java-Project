@@ -2,6 +2,7 @@ package domain.assistant;
 
 import domain.user.Client;
 import domain.user.Email;
+import domain.user.RegisterUserUseCase;
 import domain.user.Username;
 import domain.user.factory.ClientFactory;
 
@@ -9,10 +10,12 @@ import java.util.Scanner;
 
 public class Assistant {
 
-    private IAssistantMemory assistantMemory;
+    private final IAssistantMemory assistantMemory;
+    private RegisterUserUseCase registerUserUseCase;
 
-    public Assistant(IAssistantMemory assistantMemory) {
+    public Assistant(IAssistantMemory assistantMemory,RegisterUserUseCase registerUserUseCase) {
         this.assistantMemory = assistantMemory;
+        this.registerUserUseCase = registerUserUseCase;
     }
 
     public void hello(){
@@ -42,9 +45,9 @@ public class Assistant {
 
                String lastConfirmMessage = String.format("Certo. %s de email %s e idade %d", cliEmail,cliName,cliAge);
 
-               Client newClient = ClientFactory.withUserNameAndEmail(cliName,cliEmail,26);
+               this.registerUserUseCase.execute(cliName,cliEmail,24);
 
-               this.assistantMemory.register(newClient);
+               System.out.println("Perfeito! você foi registrado na nossa base de dados");
 
 
            }
